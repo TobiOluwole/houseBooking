@@ -20,6 +20,11 @@ exports.loginRoute = (req, res) => {
     res.render('login');
 }
 
+exports.logoutRoute = (req, res) => {
+    req.session.destroy();
+    res.redirect('/login');
+}
+
 exports.addBongalow = (req, res) => {
     sessCheck(req, res);
     res.render('add_bongalow', {

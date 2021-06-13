@@ -43,11 +43,9 @@ route.get('/customer-search', services.customerSearch);
 route.get('/customer-search/:name', services.customerSearch);
 
 
-/**
- * @description Login Route
- * @method GET /login
- */
 route.get('/login', services.loginRoute);
+
+route.get('/logout',services.logoutRoute);
 
 
 
