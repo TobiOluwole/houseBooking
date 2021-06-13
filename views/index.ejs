@@ -1,0 +1,67 @@
+<!-- include header -->
+<%- include('includes/_header.ejs') %> <%- include('includes/_nav.ejs') %>
+<!-- /include header-->
+
+<style>
+  .container {
+    padding-top: 20px;
+  }
+  .panel-body .btn:not(.btn-block) {
+    width: 120px;
+    margin-bottom: 10px;
+  }
+</style>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <span class="glyphicon glyphicon-bookmark"></span> Quick Shortcuts
+          </h3>
+        </div>
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-6">
+              <a href="/add-bongalow" class="btn btn-danger btn-lg" role="button"
+                ><i class="fa fa-plus"></i>
+                <br />Add Bongalow</a
+              >
+              <a href="/all-bongalows" class="btn btn-success btn-lg" role="button"
+                ><span class="fa fa-globe-europe"></span> <br />All Houses</a
+              >
+              <a href="/all-accomodations" class="btn btn-info btn-lg" role="button"
+                ><span class="fa fa-warehouse"></span> <br />All Bookings</a
+              >
+            </div>
+            <div class="col-xs-6 col-md-6">
+              <a href="/add-customer" class="btn btn-warning btn-lg" role="button"
+                ><span class="fa fa-user-plus"></span>
+                <br />Add Customer</a
+              >
+              <a href="/customer-search" class="btn btn-primary btn-lg" role="button"
+                ><span class="fa fa-search"></span>
+                <br />Customer Search</a
+              >
+            </div>
+          </div>
+          <a
+            href="http://www.jquery2dotnet.com/"
+            class="btn btn-success btn-lg btn-block"
+            role="button"
+            ><span class="fab fa-github"></span> GitHub</a
+          >
+        </div>
+      </div>
+      <br>
+      <blockquote>
+        <b><u><span class="text-danger">Please NOTE: </span></u></b> Bongalows and Accomodations can be assigned to customers from search page after a customer is selected
+      </blockquote>
+    </div>
+  </div>
+</div>
+
+<!-- include footer -->
+<%- include('includes/_footer.ejs') %>
+<!-- /include footer-->

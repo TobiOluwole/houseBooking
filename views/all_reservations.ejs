@@ -1,0 +1,50 @@
+<!-- include header -->
+<%- include('includes/_header.ejs') %> <%- include('includes/_nav.ejs') %>
+<!-- /include header-->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <span class="glyphicon glyphicon-bookmark"></span> All Reservations
+          </h3>
+        </div>
+        <div class="panel-body row">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Family name</th>
+                <th scope="col">Customer Name</th>
+                <th scope="col">House Name </th>
+                <th scope="col">Entry Date</th>
+                <th scope="col">Exit Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for(i = 0; i < reservations.length; i++){ %>
+              <tr>
+                <th scope="row"><%- i + 1 %></th>
+                <td><%- customers[i].family_name %></td>
+                <td><%- customers[i].customer_name %></td>
+                <td>
+                  <a href="/all-bongalows#bong<%- reservations[i].building_id%>"><%- bongalows[i].building_name %></a>
+                </td>
+                <td><%- reservations[i].entry_date %></td>
+                <td><%- reservations[i].exit_date %></td>
+              </tr>
+              <% } %>
+            </tbody>
+          </table>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- include footer -->
+<%- include('includes/_footer.ejs') %>
+<!-- /include footer-->

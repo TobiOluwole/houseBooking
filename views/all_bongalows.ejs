@@ -1,0 +1,49 @@
+<!-- include header -->
+<%- include('includes/_header.ejs') %> <%- include('includes/_nav.ejs') %>
+<!-- /include header-->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <span class="glyphicon glyphicon-bookmark"></span> All Bongalows
+          </h3>
+        </div>
+        <div class="panel-body row">
+<%for(i = 0; i < bongalows.length; i++){ %>
+                    <div class="brdr bgc-fff pad-10 box-shad btm-mrg-20 property-listing" id="bong<%- bongalows[i]._id %>">
+                        <div class="media">
+                            <a class="w-25" href="#" target="_parent">
+                            <img alt="image" class="img-responsive w-50"  src="<%- bongalows[i].pic_link_1 %>">
+                            <img alt="image" class="img-responsive w-50" src="<%- bongalows[i].pic_link_2 %>"></a>
+
+                            <div class="clearfix visible-sm"></div>
+
+                            <div class="media-body fnt-smaller">
+                                <a href="#" target="_parent"></a>
+
+                                <h4 class="media-heading">
+                                  <a href="#" target="_parent"><small class="pull-right"><%- bongalows[i].building_name %> ( <%- bongalows[i].building_id %> )</small></a></h4>
+
+
+                                <ul class="list-inline mrg-0 btm-mrg-10 clr-535353">
+                                    Location: <%- bongalows[i].location %>
+                                </ul>
+
+                            </div>
+                        </div>
+                                <hr>
+                    </div><!-- End Listing-->
+<% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- include footer -->
+<%- include('includes/_footer.ejs') %>
+<!-- /include footer-->

@@ -1,0 +1,86 @@
+<!-- include header -->
+<%- include('includes/_header.ejs') %> <%- include('includes/_nav.ejs') %>
+<!-- /include header-->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <span class="glyphicon glyphicon-bookmark"></span> Add Bongalow
+          </h3>
+        </div>
+        <form class="panel-body" id="addBongForm">
+          <div class="row align-items-center">
+            <div class="col mt-4">
+                <div class="row">
+                <input
+                type="text"
+                class="form-control col-8"
+                placeholder="Building Name"
+                name="building_name"
+                required
+              />
+              <input
+              type="text"
+              class="form-control col-4"
+              placeholder="id"
+              name="building_id"
+              required
+            />
+        </div>
+            </div>
+          </div>
+          <div class="row align-items-center mt-4">
+            <div class="col">
+              <input type="text" class="form-control" required placeholder="Location" name="location" />
+            </div>
+          </div>
+          <div class="row align-items-center mt-4">
+            <div class="col">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Gallery/Picture link 1"
+                name="pic_link_1"
+              />
+            </div>
+            <div class="col">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Gallery/Picture link 2"
+                name="pic_link_2"
+              />
+            </div>
+          </div>
+          <div class="row justify-content-start mt-4">
+
+              <button type="submit" class="btn btn-primary mt-4">Add</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    $('#addBongForm').on('submit', function(e){
+        e.preventDefault();
+
+        
+    $.post('/api/add-bongalow', $(this).serialize(), function(data, status){
+        alert(data.msg);
+  
+        if(data.canGo){
+          window.location.href = '/';
+        }
+      });
+    })
+</script>
+
+<!-- include footer -->
+<%- include('includes/_footer.ejs') %>
+<!-- /include footer-->

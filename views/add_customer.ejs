@@ -1,0 +1,77 @@
+<!-- include header -->
+<%- include('includes/_header.ejs') %> <%- include('includes/_nav.ejs') %>
+<!-- /include header-->
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            <span class="glyphicon glyphicon-bookmark"></span> Add Customer
+          </h3>
+        </div>
+        <form class="panel-body" id="addCusForm">
+          <div class="row align-items-center">
+            <div class="col mt-4">
+                <div class="row">
+                <input
+                type="text"
+                class="form-control col-6"
+                placeholder="Family Name"
+                name="family_name"
+                required
+              />
+              <input
+              type="text"
+              class="form-control col-6"
+              placeholder="Customer Name"
+              name="customer_name"
+              required
+            />
+        </div>
+            </div>
+          </div>
+          <div class="row align-items-center mt-4">
+            <div class="col">
+              <input type="number" class="form-control" required placeholder="Age" name="age" />
+            </div>
+          </div>
+          <div class="row align-items-center mt-4">
+            <div class="col">
+            <select name="gender" class="form-control">
+              <option value="male" selected>Male</option>
+              <option value="female">Female</option>
+            </select>
+            </div>
+            </div>
+          </div>
+          <div class="row justify-content-start mt-4">
+
+              <button type="submit" class="btn btn-primary mt-4">Add</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+    $('#addCusForm').on('submit', function(e){
+        e.preventDefault();
+
+        
+    $.post('/api/add-customer', $(this).serialize(), function(data, status){
+        alert(data.msg);
+  
+        if(data.canGo){
+          window.location.href = '/';
+        }
+      });
+    })
+</script>
+
+<!-- include footer -->
+<%- include('includes/_footer.ejs') %>
+<!-- /include footer-->

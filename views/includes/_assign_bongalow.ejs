@@ -1,0 +1,51 @@
+<!-- Button trigger modal -->
+<span type="button" class="btn btn-primary" data-toggle="modal" data-target="#ab<%- customer._id %>">
+    Assign Bongalow
+</span>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="ab<%- customer._id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Assign Bongalow</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="addReservation<%- customer.id %>" class="row">
+            <input type="hidden" name="customer_id" value="<%- customer._id %>">
+            <select class="form-control col-12" name="building_id" required>
+              <option value="">Select Bongalow</option>
+              <% for (i = 0; i<allBong.length ; i++){ %>
+                <option value="<%-allBong[i]._id %>" ><%= allBong[i].building_name %> ( <%= allBong[i].building_id %> )</option>
+              <% } %>
+            </select>
+              <input required type="date" name="entry_date" id="entryTime" class="form-control col-6 mt-4" placeholder="Entry Date">
+              <input required type="date" name="exit_date" id="exitTime" class="form-control col-6 mt-4" placeholder="Exit Date">
+
+          <button type="submit" class="btn btn-primary btn-block mt-4">Assign</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    $('#addReservation<%- customer.id %>').on('submit',function(e){
+      e.preventDefault();
+
+      $.post('/api/add-reservation', $(this).serialize() ,function(data, status){
+        alert(data.msg);
+        if(data.canGo){
+          window.location.href = '/';
+        }
+      } )
+    })
+
+  </script>
